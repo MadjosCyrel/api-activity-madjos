@@ -1,177 +1,174 @@
-/* CSS Styles */
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  --font-family: 'Poppins', sans-serif;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --bg-color: #242424;
+  --bg-gradient: linear-gradient(135deg, #242424, #333333);
+  --link-color: #ff6666;
+  --link-hover-color: #ff9999;
+  --button-bg: #1a1a1a;
+  --button-text: #fff;
+  --button-hover-bg: #ff6666;
+  --button-hover-border: #ff6666;
+  --font-size: 1.2em;
+  --button-padding: 0.8em 1.4em;
+  --button-border-radius: 20px;
+  --highlight-color: #ff7f50;
+}
+
+/* Typography */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(to bottom right, #232526, #414345);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  background: var(--bg-gradient); /* Added gradient background */
+  animation: gradient 3s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Added overflow hidden for creative effects */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+}
+
+@keyframes gradient {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
 }
 
 /* Links */
 a {
   font-weight: 500;
-  color: #fff;
+  color: var(--link-color);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease, transform 0.2s ease; /* Added transform transition */
 }
+
 a:hover {
-  color: #ffc107;
-}
-
-/* Body */
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-/* Container */
-.container {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
+  color: var(--link-hover-color);
+  transform: translateY(-2px); /* Added subtle hover effect */
 }
 
 /* Headings */
 h1 {
-  font-size: 3.5em;
+  font-size: var(--font-size);
   line-height: 1.1;
-  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--highlight-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Added text shadow for depth */
 }
 
 /* Buttons */
 button {
-  border-radius: 8px;
-  border: none;
-  padding: 0.8em 1.5em;
-  font-size: 1.1em;
-  font-weight: 600;
-  font-family: inherit;
-  background: linear-gradient(to right, #fe8c00, #f83600);
-  color: #fff;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Form */
-form {
-  margin-top: 3em;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 0.8em;
-  margin-bottom: 1.5em;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  box-sizing: border-box;
-}
-
-/* Form Button */
-.form-button {
-  background: linear-gradient(to right, #4b6cb7, #182848);
-  border: none;
-  padding: 1em 2em;
-  font-size: 1.1em;
-  font-weight: 600;
-  color: #fff;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.form-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Cards */
-.card {
-  background: linear-gradient(to bottom, #232526, #414345);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 1.5em;
-  margin-bottom: 2em;
-}
-
-.card-header {
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 1em;
-}
-
-.card-body {
-  color: #ccc;
-}
-
-/* Alerts */
-.alert {
-  padding: 1em;
-  border-radius: 10px;
-  margin-bottom: 1em;
+  border-radius: var(--button-border-radius);
+  border: 1px solid transparent;
+  padding: var(--button-padding);
+  font-size: var(--font-size);
   font-weight: 500;
-}
-.alert-success {
-  background-color: #4caf50;
-  color: #fff;
-}
-.alert-info {
-  background-color: #2196f3;
-  color: #fff;
-}
-.alert-warning {
-  background-color: #ff9800;
-  color: #fff;
+  font-family: inherit;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Added box shadow for depth */
 }
 
-/* Form Group */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5em;
+button:hover {
+  background-color: var(--button-hover-bg);
+  border-color: var(--button-hover-border);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* Enhanced hover effect */
+  animation: border-pulse 1s ease infinite alternate; /* Added border pulse animation */
 }
 
-.form-group label {
-  font-weight: 600;
+@keyframes border-pulse {
+  0% { border-width: 1px; }
+  100% { border-width: 5px; }
 }
 
-/* Name and Age Inputs */
-#name,
-#age {
-  width: calc(50% - 0.5em);
-  padding: 0.8em;
-  margin-bottom: 1em;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
+button:focus,
+button:focus-visible {
+  outline: none; /* Removed the outline for a cleaner look */
+}
+
+/* Media Queries */
+@media (prefers-color-scheme: light) {
+  :root {
+    --text-color: #213547;
+    --bg-color: #ffffff;
+    --link-hover-color: #747bff;
+    --button-bg: #f9f9f9;
+    --button-text: #1a1a1a;
+  }
+}
+
+/* Centered and Big Box */
+.container {
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+}
+
+/* Crypto Design */
+.crypto-logo {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: #f7931a;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  transform: rotate(45deg); /* Added rotation for an artistic touch */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Added box shadow for depth */
+}
+
+.crypto-text {
+  font-size: 2em;
+  font-weight: bold;
+  color: #f7931a;
+  margin-bottom: 1rem;
+  text-transform: uppercase; /* Uppercase for emphasis */
+}
+
+.crypto-description {
+  font-size: 1.1em;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px; /* Increased letter spacing for readability */
+}
+
+.crypto-button {
+  background-color: #f7931a;
   color: #fff;
-  box-sizing: border-box;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 30px; /* Larger border radius for a unique shape */
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform-style: preserve-3d; /* Added 3D transform effect */
 }
 
-/* Textarea */
-textarea {
-  width: 100%;
-  padding: 0.8em;
-  margin-bottom: 1.5em;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  box-sizing: border-box;
+.crypto-button:hover {
+  background-color: #e37d0c;
+  transform: scale(1.05); /* Slightly increased scale on hover */
+}
+
+@media (max-width: 768px) {
+  .crypto-text {
+    font-size: 1.5em;
+  }
+  .crypto-description {
+    font-size: 1em;
+  }
+  .crypto-button {
+    font-size: 1em;
+  }
 }
